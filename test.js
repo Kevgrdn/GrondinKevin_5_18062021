@@ -21,14 +21,14 @@ apiteddy()
 
 function displaycamera(camera){
     document.getElementById("cameras").innerHTML
-    += '<div class="camera col-3  m-2 border border-dark px-0 h-100 rounded">' 
+                +='<div class="camera col-3  m-2 border border-dark px-0 h-100 rounded">' 
                 + '<a href="product.html?id=' + camera._id + '&type=cameras">'
                 + '<img class="w-100 h-75 fit rounded-top"src="' + camera.imageUrl +'">' 
                 + '<p class="px-1 fw-bold"> Caméra : ' + camera.name + '</p>' 
                 + '<p class="px-1"> Description : ' + camera.description + '</p>' 
                 + '<p class="px-1 fw-bold"> Prix : ' + camera.price / 100 + '€ </p>' 
                 + '<a class="btn-info rounded px-1">Ajouter au panier</a>'
-            +'</a> </div>'
+                +'</a> </div>'
 }
 async function apicamera(){
     let response = await fetch("http://localhost:3000/api/cameras")

@@ -1,6 +1,6 @@
 function displayteddy(teddy){
     document.getElementById("teddies").innerHTML 
-        += '<div class="teddy col-3  m-2 border border-dark px-0 h-100 rounded">' 
+        += '<div class="teddy col-8 col-md-4 col-lg-3  m-2 border border-dark px-0 h-100 rounded">' 
                 + '<a href="product.html?id=' + teddy._id + '&type=teddies">'
                 + '<img class="w-100 h-75 fit rounded-top"src="' + teddy.imageUrl +'">' 
                 + '<p class="px-1 fw-bold"> Ours : ' + teddy.name + '</p>' 
@@ -21,7 +21,7 @@ apiteddy()
 
 function displaycamera(camera){
     document.getElementById("cameras").innerHTML
-                +='<div class="camera col-3  m-2 border border-dark px-0 h-100 rounded">' 
+                +='<div class="camera col-8 col-md-4 col-lg-3 m-2 border border-dark px-0 h-100 rounded">' 
                 + '<a href="product.html?id=' + camera._id + '&type=cameras">'
                 + '<img class="w-100 h-75 fit rounded-top"src="' + camera.imageUrl +'">' 
                 + '<p class="px-1 fw-bold"> Caméra : ' + camera.name + '</p>' 
@@ -42,7 +42,7 @@ apicamera()
 
 function displaymeuble(meuble){
     document.getElementById("meubles").innerHTML
-    += '<div class="meubles col-3  m-2 border border-dark px-0 h-100 rounded">' 
+    += '<div class="meubles col-8 col-md-4 col-lg-3  m-2 border border-dark px-0 h-100 rounded">' 
                 + '<a href="product.html?id=' + meuble._id + '&type=furniture">'
                 + '<img class="w-100 h-75 fit rounded-top"src="' + meuble.imageUrl +'">' 
                 + '<p class="px-1 fw-bold"> Meuble : ' + meuble.name + '</p>' 

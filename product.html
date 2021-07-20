@@ -16,18 +16,25 @@
             <div class="col-10 h1">
                 Orinoco
             </div>
-            <div class="col-2 d-flex justify-content-center">
-                <a class="btn-primary text-light rounded m-3 d-block text-center w-50" href="panier.html">
-                    Panier
-                </a>
-            </div>    
+            <a href="panier.html" class="col-2 d-flex justify-content-center">
+                <div id="cart">
+                   <p><span id="in-cart-items-num">0</span> Articles</p>
+                </div> 
+                <ul id="cart-dropdown" hidden>
+                    <li id="empty-cart-msg"><a>Votre panier est vide</a></li>
+                    <li class="go-to-cart hidden"><a href="/panier/">Voir le panier</a></li>
+                </ul>
+            </a>   
         </header>
             <div class="row col-6 h2 text-center mx-auto py-4 d-block">
                 Produits            
             </div>
             <div id="product" class="row  col-6 mx-auto d-flex justify-content-center">
-                <select id="select">
+                <div id="product-data" class="row  col-6 mx-auto d-flex justify-content-center">
+                </div>
+                <select id="select" class="personnalisation">
                 </select>
+                <button type="button" id="add-to-cart" class="add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00" data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
             </div>
         <footer class="row bg-dark text-light">
             <div class="col-12 fw-bold fst-italic py-3">
@@ -47,7 +54,7 @@
                 </ul>
             </nav>
         </footer>
-        <script src="/product.js"></script>
+        <script src="product.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </div>
 </body>

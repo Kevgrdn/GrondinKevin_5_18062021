@@ -8,20 +8,33 @@ async function apiproduct(){
     let product = JSON.parse(data);
     console.log(product, type)
     showproduct(product, type)
+    let addToCart = document.getElementById("add-to-cart")
+
+    //envoyer les fichiers dans le localstorage
+    addToCart.onclick = function(){
+        select = document.getElementById("select").value
+        console.log(document.getElementById("select").value)
+        panier = JSON.parse(window.localStorage.getItem('Panier'))
+        panier = [] 
+        panier.push([ product.imageUrl, product.description, select, product.price])
+        window.localStorage.setItem('Panier', JSON.stringify(panier))        
+    }
+    
 } 
 apiproduct()
 
+
+
 function showproduct(product, type){
-    console.log(type)
-        document.getElementById("product").innerHTML
-            +='<img src="'
+        document.getElementById("product-data").innerHTML
+            ='<img src="'
             + product.imageUrl
             + '" class="rounded fit">'
             + product.name
-            + '<p>' 
-            +product.description 
+            + '<p class="d-block text-center">' 
+            + product.description 
             +'</p>'
-            +'<p>'
+            +'<p class="d-block text-center">'
             + product.price / 100 
             +'€ </p>'
         if (type == "cameras"){
@@ -31,9 +44,8 @@ function showproduct(product, type){
             + lense
             +'">'
             + lense
-            +'</option>'})
+            +'</option>'}) 
         }
-
         if (type == "furniture"){
             product.varnish.forEach(function(varnish){
                 document.getElementById('select').innerHTML 
@@ -43,9 +55,8 @@ function showproduct(product, type){
                 + varnish
                 +'</option>'})
         }
-        else{
-
-        product.colors.forEach(function(color) { 
+        if (type == "teddies"){
+            product.colors.forEach(function(color) { 
             document.getElementById('select').innerHTML 
             +='<option value="'
             + color
@@ -53,6 +64,5 @@ function showproduct(product, type){
             + color
             +'</option>'})
         }
-        
-
 }
+

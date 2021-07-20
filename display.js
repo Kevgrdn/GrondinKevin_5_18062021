@@ -5,8 +5,8 @@ function displayteddy(teddy){
                 + '<img class="w-100 h-75 fit rounded-top"src="' + teddy.imageUrl +'">' 
                 + '<p class="px-1 fw-bold"> Ours : ' + teddy.name + '</p>' 
                 + '<p class="px-1"> Description : ' + teddy.description + '</p>' 
-                + '<p class="px-1 fw-bold"> Prix : ' + teddy.price / 100 + '€ </p>' 
-                + '<a class="btn-info rounded px-1">Ajouter au panier</a>'
+                + '<p class="px-1 fw-bold"> Prix : ' + teddy.price / 100 + '€ </p></a>' 
+                + '<a href="panier.html" class="btn-info rounded px-1" >Ajouter au panier</a>'
         +'</a> </div>'
 }
 async function apiteddy(){

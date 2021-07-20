@@ -2,3 +2,7 @@
 {
     object-fit: cover;
 }
+.panier:hover > #cart-dropdown
+{
+    display: block;
+}

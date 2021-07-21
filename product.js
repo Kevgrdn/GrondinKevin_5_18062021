@@ -13,12 +13,14 @@ async function apiproduct(){
     //envoyer les fichiers dans le localstorage
     addToCart.onclick = function(){
         select = document.getElementById("select").value
-        console.log(document.getElementById("select").value)
         panier = JSON.parse(window.localStorage.getItem('Panier'))
-        panier = [] 
-        panier.push([ product.imageUrl, product.description, select, product.price])
-        window.localStorage.setItem('Panier', JSON.stringify(panier))        
+        panier.push([product.imageUrl, product.description, select, product.price])
+        window.localStorage.setItem('Panier', JSON.stringify(panier))     
+        console.log(panier)
+    
+        })
     }
+
     
 } 
 apiproduct()

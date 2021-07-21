@@ -3,10 +3,8 @@
 
 let addToCart = document.getElementById("add-to-cart")
 
-
 addToCart.onclick = function(){
     select = document.getElementById("select").value
-    console.log(document.getElementById("select").value)
     panier = JSON.parse(window.localStorage.getItem('Panier'))
     panier = [] 
     panier.push([select, id, type])
@@ -14,3 +12,4 @@ addToCart.onclick = function(){
     
 }
 
+console.log(panier)

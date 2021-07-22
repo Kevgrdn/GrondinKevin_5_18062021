@@ -1,3 +1,4 @@
+//Afficher les oursons
 function displayteddy(teddy){
     document.getElementById("teddies").innerHTML 
         += '<div class="teddy col-8 col-md-4 col-lg-3  m-2 border border-dark px-0 h-100 rounded">' 
@@ -19,6 +20,7 @@ async function apiteddy(){
 } 
 apiteddy()
 
+//Afficher les caméras
 function displaycamera(camera){
     document.getElementById("cameras").innerHTML
                 +='<div class="camera col-8 col-md-4 col-lg-3 m-2 border border-dark px-0 h-100 rounded">' 
@@ -40,6 +42,7 @@ async function apicamera(){
 }
 apicamera()
 
+//Afficher les meubles
 function displaymeuble(meuble){
     document.getElementById("meubles").innerHTML
     += '<div class="meubles col-8 col-md-4 col-lg-3  m-2 border border-dark px-0 h-100 rounded">' 

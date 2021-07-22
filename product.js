@@ -17,8 +17,7 @@ async function apiproduct(){
         panier.push([product.imageUrl, product.description, select, product.price])
         window.localStorage.setItem('Panier', JSON.stringify(panier))     
         console.log(panier)
-    
-        })
+       
     }
 
     

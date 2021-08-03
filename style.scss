@@ -6,3 +6,18 @@
 {
     display: block;
 }
+.row.personal-bg
+{
+    background: url(/image/ours.jpg) no-repeat center;
+    flex-wrap: nowrap;
+    height: 30rem;
+
+}
+.bg-lightDark
+{
+    background-color: rgb(119, 119, 119);
+}
+.unstyled-link
+{
+    text-decoration: none;
+}

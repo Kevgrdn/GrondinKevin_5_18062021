@@ -7,18 +7,24 @@
     <meta name="description" content="Tous les objets de votre quotidien !">
     <meta name="keywords" content="camera, ours, ourson, peluche, fait main, meuble, chêne">
     <link rel="stylesheet" href="style.css">
-    <title>Orinoco</title>
+    <title>Votre produit</title>
+    <script src="https://kit.fontawesome.com/464276c0ad.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <div class="container-fluid">
-        <header class="row bg-dark bg-gradienttext-light d-flex">
-            <div class="col-8 h1">
+        <header class="row bg-dark align-items-center bg-gradient text-light d-flex">
+            <div class="col-8 h1 font-style-google-font">
                 Orinounours
             </div>
             <div class="col-4 d-flex justify-content-end">
                 <a class="text-light m-3 text-center" href="panier.html">
-                    Panier
+                    <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>    
         </header>
@@ -28,11 +34,13 @@
                 </u>          
             </h2>
             <div id="product" class="row mx-auto d-flex justify-content-center flex-column my-2">
-                <div id="product-data" class="row col-6 px-0 mx-auto d-flex justify-content-center shadow rounded-3 my-2">
+                <div id="product-data" class="row col-md-6 px-0 mx-auto d-flex justify-content-center shadow rounded-3 my-2">
                 </div>
-                <select id="select" class="personnalisation col-2 mx-auto my-1 p-2 rounded">
+                <select id="select" class="personnalisation col-md-2 col-6 mx-auto my-1 p-2 rounded">
                 </select>
-                <button type="button" id="add-to-cart" class="add-to-cart btn-primary rounded col-2 mx-auto my-1 p-2 shadow-lg" data-id="432" data-name="Pastilles" data-price="29,00" data-weight="97" data-url="/produit/pastilles-anti-douleurs/">Ajouter au panier</button>
+                <button type="button" id="add-to-cart" class="add-to-cart btn-primary rounded col-md-2 col-6 mx-auto my-1 p-2 shadow-lg" data-id="432" data-name="Pastilles" data-price="29,00" data-weight="97" data-url="/produit/pastilles-anti-douleurs/">
+                    <i class="fas fa-cart-plus"></i>
+                </button>
             </div>
         <footer class="row bg-dark text-light bg-gradient">
             <div class="col-12 fw-bold fst-italic py-3">

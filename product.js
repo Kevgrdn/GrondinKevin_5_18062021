@@ -19,18 +19,19 @@ async function apiproduct(){
             }
         select = document.getElementById("select").value
         panier = JSON.parse(window.localStorage.getItem('Panier'))
-        //Si le panier est vide
+        //Si le panier est vide, ça crée le tableau d'item
             if (panier == null){
                 panier = []
             }
         let indexTableauPanier = productStorage.indexOf(select + id)
+            
             if (indexTableauPanier >= 0){
                 quantity = parseInt(panier[indexTableauPanier][5]) + 1
                 panier[indexTableauPanier][5] = quantity
             }
             else {
                 quantity = 1
-                productStorage.push(id)
+                productStorage.push(id + select)
                 panier.push([product.imageUrl, product.description, select, product.price, id, quantity])
 
             }
@@ -51,14 +52,14 @@ function showproduct(product, type){
         document.getElementById("product-data").innerHTML
             ='<img class="px-0" src="'
             + product.imageUrl
-            + '" class="rounded fit"><div class="bg-dark rounded bg-gradient"><p class="text-center text-light">'
+            + '" class="rounded fit"><div class="bg-dark rounded bg-gradient"><p class="text-center font-style-google-font h1 py-3 text-light">'
             + product.name
             + '</p><p class="d-block text-center text-light">' 
             + product.description 
             +'</p>'
             +'<p class="d-block text-center text-light">'
             + product.price / 100 
-            +'€ </p></div>'
+            +' € </p></div>'
        
         
         if (type == "teddies"){

@@ -11,16 +11,16 @@ function displayCart(){
         //console.log(index)
 
         document.getElementById('items').innerHTML 
-        += '<div id="product-'+ index +'" class="row justify-content-around"><div class="col-3 py-2"><img src="'
+        += '<div id="product-'+ index +'" class="row justify-content-around align-items-center p-0"><div class="col-3 py-2"><img src="'
         + elementInStorage[0]
         +'" class="d-flex rounded w-100 m-auto flex-rowfit py-2"></div>'
-        + '<div class="col-3  text-center align-items-center text-light">'
+        + '<div class="col-3  text-center text-light">'
         + elementInStorage[2]
-        + '</p></div><div id="quantity" class=" text-center col-3 py-2 text-light">'
-        + '<button class="rounded btnLessQuantity" data-pos="'+ index +'"> - </button><span class="quantity">'
+        + '</div><div id="quantity" class=" text-center px-0 col-3 py-2 text-light">'
+        + '<button class="rounded btnLessQuantity btn-secondary mx-1" data-pos="'+ index +'"> - </button><span class="quantity">'
         + elementInStorage[5]+ '</span>'
-        +'<button id="" class="rounded btnMoreQuantity" data-pos="'+ index +'"> + </button"></div>'
-        + '<div class="col-2 py-2  text-center text-light">'
+        +'<button id="" class="rounded btnMoreQuantity btn-primary mx-1" data-pos="'+ index +'"> + </button"></div>'
+        + '<div class="col-2 py-2 px-0  text-center text-light">'
         + elementInStorage[3] / 100 + ' €'
         + '</div></div>'
        
@@ -91,3 +91,6 @@ function displayPrice(){
 }
 
 displayPrice()
+
+
+

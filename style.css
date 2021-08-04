@@ -9,7 +9,7 @@
 .row.personal-bg {
   background: url(/image/ours.jpg) no-repeat center;
   flex-wrap: nowrap;
-  height: 30rem;
+  height: 20rem;
 }
 
 .bg-lightDark {
@@ -18,6 +18,18 @@
 
 .unstyled-link {
   text-decoration: none;
+}
+
+.font-style-google-font {
+  font-family: "MonteCarlo", cursive;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.miniature {
+  height: 30rem;
 }
 
 /*# sourceMappingURL=style.css.map */

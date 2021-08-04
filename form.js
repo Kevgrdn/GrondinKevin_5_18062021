@@ -25,13 +25,20 @@ validation.onclick = function(e){
     .then((response) => response.json()) 
     .then((apiData) => {
         localStorage.setItem("order", JSON.stringify(apiData));
+        
     })
     .catch(() => {
         alert(error)
     })
-    
-      
+    document.getElementById('valider').onclick =async function(){
+        RedirectionJavascript()
+     }
+   
     
 }
-   
 
+//Redirection JS vers validation.html
+function RedirectionJavascript(){
+    document.location.href="validation.html"; 
+  }
+  

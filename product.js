@@ -23,7 +23,7 @@ async function apiproduct(){
             if (panier == null){
                 panier = []
             }
-        let indexTableauPanier = productStorage.indexOf(select + id)
+        let indexTableauPanier = productStorage.indexOf(id + '-' + select)
             
             if (indexTableauPanier >= 0){
                 quantity = parseInt(panier[indexTableauPanier][5]) + 1
@@ -31,7 +31,7 @@ async function apiproduct(){
             }
             else {
                 quantity = 1
-                productStorage.push(id + select)
+                productStorage.push(id + '-' + select)
                 panier.push([product.imageUrl, product.description, select, product.price, id, quantity])
 
             }
@@ -39,7 +39,7 @@ async function apiproduct(){
         window.localStorage.setItem('Panier', JSON.stringify(panier))   
         window.localStorage.setItem('Product', JSON.stringify(productStorage))       
         console.log(panier)
-       
+       document.getElementById('added-to-cart').innerHTML = 'Votre produit a été ajouté au panier !'
     }
 
     

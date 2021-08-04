@@ -5,13 +5,21 @@ let lastName = document.getElementById('lastName')
 let adress = document.getElementById('adress')
 let city = document.getElementById('city')
 let mail = document.getElementById('mail') 
-let product = window.localStorage.getItem('Product')
 
 // Au clic sur valider la commande, déclenche la fonction de validation du formulaire
 validation.onclick = function(e){
+    let product = window.localStorage.getItem('Product')
+    let productJSON = JSON.parse(product)
+    let productToSend = []
+
+    productJSON.forEach(element => {
+     productToSend.push(element.split('-')[0])
+
+    
+});
     console.log(e)
     //Contenu du formulaire à envoyer
-    body = '{"contact": {"firstName": "'+ firstName.value+'","lastName": "'+lastName.value+'","address": "'+adress.value+'","city": "'+city.value+'", "email": "'+mail.value+'"},"products":'+product+'}'
+    body = '{"contact": {"firstName": "'+ firstName.value+'","lastName": "'+lastName.value+'","address": "'+adress.value+'","city": "'+city.value+'", "email": "'+mail.value+'"},"products":'+JSON.stringify(productToSend)+'}'
         console.log(body)
     
         
@@ -25,14 +33,12 @@ validation.onclick = function(e){
     .then((response) => response.json()) 
     .then((apiData) => {
         localStorage.setItem("order", JSON.stringify(apiData));
-        
+        RedirectionJavascript()
     })
     .catch(() => {
         alert(error)
     })
-    document.getElementById('valider').onclick =async function(){
-        RedirectionJavascript()
-     }
+    
    
     
 }

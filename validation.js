@@ -6,13 +6,18 @@ console.log(form.products)
 document.getElementById('orderNumber').innerHTML
     +='<u>' +form.orderId+'</u>'
 
+let quantity = JSON.parse(window.localStorage.getItem('Panier'))
+
+console.log(quantity)
 //Afficher le prix total sur la page formulaire
 function setPrice(){
     let products = form.products
     totalPrice = 0
 
-    products.forEach(element => {
-        totalPrice += element.price
+    products.forEach(function(element, index, array) {
+        productQuantity = quantity[index][5]
+        totalPrice += element.price * productQuantity
+        console.log(index)
         
     });   
     document.getElementById('finalPrice').innerHTML

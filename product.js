@@ -24,11 +24,12 @@ async function apiproduct(){
                 panier = []
             }
         let indexTableauPanier = productStorage.indexOf(id + '-' + select)
-            
+            // ??
             if (indexTableauPanier >= 0){
                 quantity = parseInt(panier[indexTableauPanier][5]) + 1
                 panier[indexTableauPanier][5] = quantity
             }
+
             else {
                 quantity = 1
                 productStorage.push(id + '-' + select)

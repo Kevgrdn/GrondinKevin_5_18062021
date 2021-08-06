@@ -1,15 +1,21 @@
-
 // Afficher le panier sur la page Panier
 let storageData = JSON.parse(localStorage.getItem("Panier"))
 
-
-
+//La fonction affiche le contenu du localStorage, il faut boucler avec un forEach afin d'afficher tous les items du tableau
 function displayCart(){
     let productInformations = JSON.parse(window.localStorage.getItem('Product'))
-    //La fonction affiche le contenu du localStorage, il faut boucler avec un forEach afin d'afficher tous les items du tableau
+//Si le localStorage est vide OU si la clef Panier est vide : 
+    if(window.localStorage.length == 0 || storageData.length == 0)
+    {
+        document.getElementById('items').innerHTML = '<div class="text-light mx-auto text-center"> Votre panier est vide </div>'
+        document.getElementById('valider').onclick = function (){
+            alert('Votre panier est vide !')
+        }
+    }
+    else 
+    {
+        //Boucle qui affiche tous les produits de la clef "Panier"
     storageData.forEach(function(elementInStorage, index, array) {
-        //console.log(index)
-
         document.getElementById('items').innerHTML 
         += '<div id="'+ productInformations[index] +'" class="row justify-content-around align-items-center p-0"><div class="col-3 py-2"><img src="'
         + elementInStorage[0]
@@ -25,23 +31,29 @@ function displayCart(){
         + '</div></div>'
        
     });
-
+    }
+    
+    
+    //Ecoute les informations lors du clic
     document.addEventListener('click', function(e){
-        //////////////////console.log(e)
-        //Quantité +
-        console.log(e)
+        //console.log(e)
+        product = JSON.parse(window.localStorage.getItem('Product'))
 
+        // Au clic Quantité +
         if(e.target && e.target.className == 'rounded btnMoreQuantity btn-primary mx-1'){
-             //do something
-             let quantity = parseInt(e.target.previousElementSibling.innerText)  + 1
-             e.target.previousElementSibling.innerText = quantity
+            let productIndex = product.indexOf(e.target.dataset.id)
+            console.log(productIndex)
+            let quantity = parseInt(e.target.previousElementSibling.innerText)  + 1
+            panier = JSON.parse(window.localStorage.getItem('Panier')) 
 
-             panier = JSON.parse(window.localStorage.getItem('Panier')) 
-             panier[e.target.dataset.pos][5] += 1
-             window.localStorage.setItem('Panier', JSON.stringify(panier))
-             displayPrice()
+            e.target.previousElementSibling.innerText = quantity
+            panier.splice(1, productIndex)
+            product.splice(1, productIndex)
+            panier[productIndex][5] += 1
+            window.localStorage.setItem('Panier', JSON.stringify(panier))
+            displayPrice()
         }
-        //Quantité -
+        //Au clic Quantité -
         if(e.target && e.target.className == 'rounded btnLessQuantity btn-secondary mx-1'){
             let quantity = parseInt(e.target.nextElementSibling.innerText) - 1
             product = JSON.parse(window.localStorage.getItem('Product'))
@@ -73,17 +85,18 @@ function displayCart(){
         }
     });
 
-
-    //console.log(document.getElementsByClassName('btnMoreQuantity'))
     document.querySelectorAll('.btnMoreQuantity').addEventListener
-
-
-   
 }
 displayCart()
 
 
-//Fonction pour boucler sur le prix afin d'obtenir le prix total
+if(window.localStorage.length == 0 || storageData.length == 0)
+{
+            
+}
+else
+{
+    //Fonction pour boucler sur le prix afin d'obtenir le prix total
 function displayPrice(){
     totalPrice = 0
     let storageData = JSON.parse(localStorage.getItem("Panier"))
@@ -94,8 +107,11 @@ function displayPrice(){
     document.getElementById('totalPrice').innerHTML
     = 'Total : ' +  totalPrice / 100 + ' €'
 }
-
 displayPrice()
+
+}
+
+
 
 
 

@@ -25,11 +25,11 @@ function setPrice(){
         
 }
 setPrice()
+window.localStorage.removeItem('Panier')
+window.localStorage.removeItem('order')
+window.localStorage.removeItem('Product')
 // Au clic sur retour à la page d'accueil, vide le localStorage
 document.getElementById('finDeCommande').onclick = function(){
-    window.localStorage.removeItem('Panier')
-    window.localStorage.removeItem('order')
-    window.localStorage.removeItem('Product')
     RedirectionJavascript()
 }
 //Function qui redirige vers la page d'accueil en fin de commande

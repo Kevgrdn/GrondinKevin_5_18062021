@@ -45,10 +45,7 @@ function displayCart(){
             console.log(productIndex)
             let quantity = parseInt(e.target.previousElementSibling.innerText)  + 1
             panier = JSON.parse(window.localStorage.getItem('Panier')) 
-
             e.target.previousElementSibling.innerText = quantity
-            panier.splice(1, productIndex)
-            product.splice(1, productIndex)
             panier[productIndex][5] += 1
             window.localStorage.setItem('Panier', JSON.stringify(panier))
             displayPrice()

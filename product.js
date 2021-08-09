@@ -2,14 +2,15 @@ const params = new URLSearchParams(window.location.search)
 let id = params.get('id');
 let type = params.get('type');
 
-async function apiproduct(){
-    let response = await fetch('http://localhost:3000/api/'+ type +'/'+ id)
-    let data = await response.text();
-    let product = JSON.parse(data);
-    //console.log(product, type)
-    showproduct(product, type)
-    let addToCart = document.getElementById("add-to-cart")
+fetch('http://localhost:3000/api/'+ type +'/'+ id)
+.then((response) => {
+    return response.json()
+})
+.then((product) => {
 
+    console.log(product, type)
+    let addToCart = document.getElementById("add-to-cart")
+    showproduct(product, type)
     //envoyer les fichiers dans le localstorage
     addToCart.onclick = function(){
         //ID du produit
@@ -41,11 +42,9 @@ async function apiproduct(){
         window.localStorage.setItem('Product', JSON.stringify(productStorage))       
         console.log(panier)
        document.getElementById('added-to-cart').innerHTML = 'Votre produit a été ajouté au panier !'
-    }
+    }   
+}) 
 
-    
-} 
-apiproduct()
 
 
 
